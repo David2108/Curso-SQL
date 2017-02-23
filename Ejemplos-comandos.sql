@@ -1,7 +1,4 @@
-	/*
-    USE sakila;
-    */
-    
+
     /*-----------------------SELECT Y WHERE----------------------------*/
     
     /*
@@ -113,8 +110,6 @@
       Date_format()
       Concat()
     */
-    
-    USE northwind;
     
     /*Consulta para incrementar el 14% al precio
       el precio con iva tendra 2 decimales
@@ -347,8 +342,7 @@
       poseen zona de las columnas, zona de las filas y la zona de los totales
     */
     
-    select * from products;
-    
+    /*
     SELECT product_code, 
 			SUM(if(category = 'Beverages', standard_cost, null)) AS Beverages,
             SUM(if(category = 'Candy', standard_cost, null)) AS Candy,
@@ -356,4 +350,125 @@
             SUM(if(category = 'Condiments', standard_cost, null)) AS Condiments
     FROM products
     GROUP BY product_code
+    */
     
+    /*----------COMANDOS DDL---------------*/
+    
+    /*
+      -create database 
+       Se usa para crear base de datos
+      -create table
+       Se usa para crear tablas
+	  -drop table
+       Se usa para eliminar una tabla
+	  -alter table
+       Se usa para modificar la estructura de una tabla
+    */
+    
+    /*
+    CREATE DATABASE prueba;
+    USE prueba;
+    CREATE TABLE estudiantes(
+		Id_Estudiante INT AUTO_INCREMENT,
+		Nombres VARCHAR(40),
+        Apellidos VARCHAR(40), 
+        Edad TINYINT,
+        Fecha_Nacimiento DATE,
+        Carnet BOOL,
+        
+        PRIMARY KEY (Id_Estudiante));
+	*/
+    
+    /*
+	USE prueba;
+    DROP TABLE tabla_prueba;
+    */
+    
+    /*
+    Para agregar un campo
+    
+    USE prueba;
+    ALTER TABLE estudiantes
+    ADD COLUMN Fecha_Ingreso DATETIME;
+    */
+    
+    /*
+    Para eliminar un campo
+    
+    USE prueba;
+    ALTER TABLE estudiantes
+    DROP COLUMN Fecha_Ingreso;
+    */
+    
+    /*
+    Para Modificar una columna
+    
+    USE prueba;
+    ALTER TABLE estudiantes
+    MODIFY COLUMN Fecha_Ingreso DATE;
+    */
+    
+    /*
+	Para poner un default en un campo
+    USE prueba;
+    ALTER TABLE estudiantes
+    MODIFY Fecha_Ingreso DATE
+	DEFAULT '2000-01-01';
+    */
+    
+    /*
+    Para quitar un default en un campo
+    USE prueba;
+    ALTER TABLE estudiantes
+    ALTER COLUMN Fecha_Ingreso 
+    DROP DEFAULT;
+    */
+    
+    /*---------INDICES-----------*/
+    
+    /*
+	  Tipos de Indices
+      -Indices clave primaria
+       Cada Valor es unico
+       No permite campos nulos
+      -Indices Ordinarios
+       Permte campos duplicados
+       Permite campos nulos
+      -Indices Simples
+       Cada valor es unico
+       Permite campos unicos
+      -Indices Compuestos
+       Esta compuesto por varios compos
+       Permite campos nulos
+    */
+    
+    /*
+    Indice clave primaria
+    
+    USE prueba;
+    CREATE TABLE Tabla_Indices(
+		Dni VARCHAR(10),
+        Nombre VARCHAR(20),
+        Apellido VARCHAR(20),
+        Edad TINYINT);
+        
+	Agregar una primary key a un campo
+	ALTER TABLE Tabla_Indices 
+    ADD PRIMARY KEY (Dni);
+    
+    Quitar un primary key
+    ALTER TABLE Tabla_Indices
+    DROP PRIMARY KEY;
+    */
+    
+    USE prueba;
+    CREATE INDEX IndiceOrdinario
+    ON Tabla_Indices (Apellido);
+    
+    USE prueba;
+    ALTER TABLE Tabla_Indices
+	ADD INDEX Indi
+    
+    USE prueba;
+    DROP INDEX IndiceOrdinario 
+    ON Tabla_Indices;
